@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
@@ -67,7 +66,7 @@ app.use(express.json({ limit: '1000kb' }));
 
 const corsOptions = {
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE',PATCH 'OPTIONS'], 
   credentials: true,
 };
 
