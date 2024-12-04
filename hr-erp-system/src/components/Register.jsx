@@ -36,13 +36,13 @@ const Register = () => {
     };
   }, [isSuccess, isError, message, navigate, dispatch]);
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(formData));
@@ -102,7 +102,7 @@ const Register = () => {
                 </div>
               </div>
 
-{/*               <div>
+              {/*               <div>
                 <label className='block text-gray-600 mb-2'>Department</label>
                 <div className='relative'>
                   <Building2 className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
@@ -123,7 +123,7 @@ const Register = () => {
                 </div>
               </div> */}
 
-{/*               <div>
+              {/*               <div>
                 <label className='block text-gray-600 mb-2'>Position</label>
                 <div className='relative'>
                   <Building2 className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
