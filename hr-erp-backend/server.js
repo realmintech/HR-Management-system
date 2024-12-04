@@ -36,7 +36,7 @@ const swaggerOptions = {
       },
       servers: [
         {
-          url: `http://localhost:${process.env.PORT || 5000}/api`,
+          url:'https://stack-overflow-api-clone.onrender.com/api',
         },
       ],
     },
