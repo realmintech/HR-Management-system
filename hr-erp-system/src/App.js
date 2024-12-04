@@ -8,13 +8,13 @@ import {
 import { useSelector } from 'react-redux';
 import PublicRoute from './components/routing/PublicRoute';
 import ProtectedRoute from './components/routing/ProtectedRoute';
-import Login from './components/Login';
-import Register from './components/Register';
-import EmployeeDashboard from './components/EmployeeDashboard/EmployeeDashboard';
-import NotFound from './components/NotFound';
-import PersonalDetails from './components/EmployeeDashboard/PersonalDetails';
-import AdminDashboard from './components/AdminDashboard/AdminDashboard';
-import HRLandingPage from './components/HRLandingPage';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import EmployeeDashboard from './pages/EmployeeDashboard/EmployeeDashboard';
+import NotFound from './pages/NotFound';
+import PersonalDetails from './pages/EmployeeDashboard/PersonalDetails';
+import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
+import HRLandingPage from './pages/HRLandingPage';
 
 function App() {
   const { user } = useSelector((state) => state.auth);

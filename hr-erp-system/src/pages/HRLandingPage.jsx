@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Users, BarChart2, Settings, Menu, X } from 'lucide-react';
 import hr from '../assets/hr.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -14,12 +14,11 @@ const HRLandingPage = () => {
 
   const { user } = useSelector((state) => state.auth);
 
-
   useEffect(() => {
     const testLiveURL = async () => {
       try {
         const response = await fetch(
-          'https://wastech-erp-system.onrender.com'
+          'https://wastech-erp-system.onrender.com/api-docs/'
         );
         if (response.ok) {
           toast.success('Server is reachable!');
