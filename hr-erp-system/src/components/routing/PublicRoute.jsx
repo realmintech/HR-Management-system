@@ -7,7 +7,7 @@ const PublicRoute = () => {
   if (user) {
     return (
       <Navigate
-        to={user?.user.role === 'admin' ? '/admin' : '/dashboard'}
+        to={user?.user?.role === 'admin' ? '/admin' : '/dashboard'}
         replace
       />
     );

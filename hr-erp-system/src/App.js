@@ -56,7 +56,7 @@ function App() {
             <Navigate
               to={
                 user
-                  ? user.role === 'admin'
+                  ? user?.role === 'admin'
                     ? '/admin'
                     : '/dashboard'
                   : '/login'
