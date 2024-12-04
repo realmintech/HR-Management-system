@@ -99,9 +99,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/', (req, res) => {
-  res.json('We are here ❤️');
-});
+// app.use('/', (req, res) => {
+//   res.json('We are here ❤️');
+// });
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 
