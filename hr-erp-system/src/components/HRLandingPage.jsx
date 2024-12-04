@@ -19,7 +19,7 @@ const HRLandingPage = () => {
     const testLiveURL = async () => {
       try {
         const response = await fetch(
-          'https://wastech-erp-system.onrender.com/'
+          'https://wastech-erp-system.onrender.com'
         );
         if (response.ok) {
           toast.success('Server is reachable!');
