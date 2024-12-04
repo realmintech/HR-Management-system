@@ -36,7 +36,7 @@ const swaggerOptions = {
       },
       servers: [
         {
-          url: 'https://stack-overflow-api-clone.onrender.com/api',
+          url:'https://stack-overflow-api-clone.onrender.com/api',
         },
       ],
     },
@@ -51,27 +51,34 @@ const swaggerOptions = {
     },
     security: [
       {
-        bearerAuth: [],
+        bearerAuth: [], 
       },
     ],
   },
-  apis: ['./routes/*.js'],
+  apis: ['./routes/*.js'], 
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Body parser
-app.use(express.json({ limit: '1000kb' }));
+app.use(express.json({ limit: '1000kb' })); 
 
-app.use(cors());
+
+const corsOptions = {
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 // Set security HTTP headers
 app.use(helmet());
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
+  windowMs: 15 * 60 * 1000, 
   max: 100,
   message: 'Too many requests from this IP, please try again after 15 minutes',
 });
