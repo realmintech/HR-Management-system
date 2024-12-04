@@ -9,12 +9,12 @@ const employeeSchema = new mongoose.Schema(
     },
     department: {
       type: String,
-      required: [true, 'Please provide a department'],
+      // required: [true, 'Please provide a department'],
       default: 'Engineering',
     },
     position: {
       type: String,
-      required: [true, 'Please provide a position'],
+      // required: [true, 'Please provide a position'],
       default: 'Intern',
     },
 
