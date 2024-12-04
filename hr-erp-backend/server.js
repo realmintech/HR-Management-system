@@ -66,7 +66,7 @@ app.use(express.json({ limit: '1000kb' }));
 
 const corsOptions = {
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE',PATCH 'OPTIONS'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH', 'OPTIONS'], 
   credentials: true,
 };
 
