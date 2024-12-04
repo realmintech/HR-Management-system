@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Users, BarChart2, Settings, Menu, X } from 'lucide-react';
 import hr from '../assets/hr.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,26 @@ const HRLandingPage = () => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
+
+
+  useEffect(() => {
+    const testLiveURL = async () => {
+      try {
+        const response = await fetch(
+          'https://wastech-erp-system.onrender.com/'
+        );
+        if (response.ok) {
+          toast.success('Server is reachable!');
+        } else {
+          toast.error('Failed to reach the server');
+        }
+      } catch (error) {
+        toast.error('Error connecting to the server');
+      }
+    };
+
+    testLiveURL();
+  }, []);
 
   const handleLogout = () => {
     try {
@@ -30,9 +50,10 @@ const HRLandingPage = () => {
     navigate('/login');
   };
 
-  const handleRegister= () => {
+  const handleRegister = () => {
     navigate('/register');
   };
+
   const NavBar = () => (
     <nav className='fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -40,12 +61,12 @@ const HRLandingPage = () => {
           {/* Logo and Role */}
           <div className='flex items-center'>
             <span className='text-2xl font-bold text-blue-600'>
-              HR⚡Systems 
-              {user && user.role === 'admin' && 
+              HR⚡Systems
+              {user && user.role === 'admin' && (
                 <span className='ml-2 text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded'>
                   Admin
                 </span>
-              }
+              )}
             </span>
           </div>
 
@@ -160,14 +181,15 @@ const HRLandingPage = () => {
             Streamline Your <span className='text-blue-600'>HR Processes</span>
           </h1>
           <p className='text-xl text-gray-600 leading-relaxed'>
-            {user 
-              ? `Welcome, ${user.role === 'admin' ? 'Admin' : 'Employee'}! Manage your HR tasks efficiently.`
-              : 'Empower your workforce with intelligent HR management. Centralize employee data, automate workflows, and gain powerful insights.'
-            }
+            {user
+              ? `Welcome, ${
+                  user.role === 'admin' ? 'Admin' : 'Employee'
+                }! Manage your HR tasks efficiently.`
+              : 'Empower your workforce with intelligent HR management. Centralize employee data, automate workflows, and gain powerful insights.'}
           </p>
           {!user && (
             <div className='flex space-x-4'>
-              <button 
+              <button
                 className='bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow-md'
                 onClick={handleRegister}
               >
