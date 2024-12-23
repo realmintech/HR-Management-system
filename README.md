@@ -39,6 +39,7 @@ The HR Management System is a web application designed to streamline human resou
 
 ### Clone 
 https://github.com/realmintech/HR-Management-system.git
+
 cd hr-erp-backend
 
 ### Install Dependencies
