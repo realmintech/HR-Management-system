@@ -37,9 +37,7 @@ The HR Management System is a web application designed to streamline human resou
 - MongoDB (local or cloud instance)
 - Git
 
-### Clone the Repository
-
-git clone https://github.com/wastech/ERP-system.git
+### Clone 
 cd hr-erp-backend
 
 ### Install Dependencies
