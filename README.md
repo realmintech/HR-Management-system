@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Project Description](#project-description)
 - [Features](#features)
-- [Technologies Used](#technologies-used)
+- [Technologies Used](#technologies-used)git
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
