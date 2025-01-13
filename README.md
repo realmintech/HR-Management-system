@@ -39,7 +39,7 @@ The HR Management System is a web application designed to streamline human resou
 
 ### Clone the Repository
 
-git clone https://github.com/wastech/ERP-system.git
+git clone https://github.com/realmintech/HR-Management-system.git
 cd hr-erp-backend
 
 ### Install Dependencies
@@ -65,7 +65,7 @@ npm run dev
 The server will start on `http://localhost:5000`.
 
 ## Usage
-- Navigate to `http://localhost:5000/api-docs` or [https://hr-management-system-backend-9c9a.onrender.com] to view the API documentation.
+- Navigate to `http://localhost:5000/api-docs` or [https://hr-management-system-backend-9c9a.onrender.com/api-docs] to view the API documentation.
 - Use tools like Postman or Insomnia to test the API endpoints.
 
 ## API Endpoints
