@@ -1,17 +1,17 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const employeeRoutes = require('./routes/employeeRoutes');
-const authRoutes = require('./routes/authRoutes');
-const cors = require('cors');
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
-const rateLimit = require('express-rate-limit');
-const compression = require('compression');
-const errorMiddleware = require('./middleware/errorMiddleware');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+const employeeRoutes = require("./routes/employeeRoutes");
+const authRoutes = require("./routes/authRoutes");
+const cors = require("cors");
+const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
+const rateLimit = require("express-rate-limit");
+const compression = require("compression");
+const errorMiddleware = require("./middleware/errorMiddleware");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 // Load env vars
 dotenv.config();
@@ -24,49 +24,48 @@ const app = express();
 // Swagger setup
 const swaggerOptions = {
   swaggerDefinition: {
-    openapi: '3.0.0',
+    openapi: "3.0.0",
     info: {
-      title: 'HR Management API',
-      version: '1.0.0',
-      description: 'API documentation for HR Management System',
+      title: "HR Management API",
+      version: "1.0.0",
+      description: "API documentation for HR Management System",
       contact: {
-        name: 'RealMinTech',
-        email: 'Adesinamariam7',
+        name: "RealMinTech",
+        email: "Adesinamariam7",
       },
       servers: [
         {
-          url:'',
+          url: "",
         },
       ],
     },
     components: {
       securitySchemes: {
         bearerAuth: {
-          type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT',
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
         },
       },
     },
     security: [
       {
-        bearerAuth: [], 
+        bearerAuth: [],
       },
     ],
   },
-  apis: ['./routes/*.js'], 
+  apis: ["./routes/*.js"],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Body parser
-app.use(express.json({ limit: '1000kb' })); 
-
+app.use(express.json({ limit: "1000kb" }));
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:4000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH', 'OPTIONS'], 
+  origin: process.env.CLIENT_URL || "http://localhost:4000",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 };
 
@@ -77,11 +76,11 @@ app.use(helmet());
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, 
+  windowMs: 15 * 60 * 1000,
   max: 100,
-  message: 'Too many requests from this IP, please try again after 15 minutes',
+  message: "Too many requests from this IP, please try again after 15 minutes",
 });
-app.use('/api', limiter);
+app.use("/api", limiter);
 
 app.use(mongoSanitize());
 
@@ -101,13 +100,13 @@ app.use((req, res, next) => {
 // app.use('/', (req, res) => {
 //   res.json('We are here ❤️');
 // });
-app.use('/api/auth', authRoutes);
-app.use('/api/employees', employeeRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/employees", employeeRoutes);
 
 // Handle undefined routes
-app.all('*', (req, res, next) => {
+app.all("*", (req, res, next) => {
   const err = new Error(`Can't find ${req.originalUrl} on this server!`);
-  err.status = 'fail';
+  err.status = "fail";
   err.statusCode = 404;
   next(err);
 });
@@ -122,8 +121,8 @@ const server = app.listen(PORT, () => {
 });
 
 // Handle unhandled promise rejections
-process.on('unhandledRejection', (err) => {
-  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
+process.on("unhandledRejection", (err) => {
+  console.log("UNHANDLED REJECTION! 💥 Shutting down...");
   console.log(err.name, err.message);
   server.close(() => {
     process.exit(1);
@@ -131,8 +130,8 @@ process.on('unhandledRejection', (err) => {
 });
 
 // Handle uncaught exceptions
-process.on('uncaughtException', (err) => {
-  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
   console.log(err.name, err.message);
   process.exit(1);
 });
