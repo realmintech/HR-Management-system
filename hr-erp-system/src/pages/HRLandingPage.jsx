@@ -18,7 +18,7 @@ const HRLandingPage = () => {
     const testLiveURL = async () => {
       try {
         const response = await fetch(
-          "https://hr-management-system-backend-9c9a.onrender.com/api-docs/api"
+          "https://hr-management-system-backend-9c9a.onrender.com/api-docs/"
         );
         if (response.ok) {
           toast.success('Server is reachable!');
