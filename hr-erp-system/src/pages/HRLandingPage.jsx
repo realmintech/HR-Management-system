@@ -14,24 +14,24 @@ const HRLandingPage = () => {
 
   const { user } = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   const testLiveURL = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         "https://hr-management-system-backend-9c9a.onrender.com/api-docs/"
-  //       );
-  //       if (response.ok) {
-  //         toast.success('Server is reachable!');
-  //       } else {
-  //         toast.error('Failed to reach the server');
-  //       }
-  //     } catch (error) {
-  //       toast.error('Error connecting to the server');
-  //     }
-  //   };
+  useEffect(() => {
+    const testLiveURL = async () => {
+      try {
+        const response = await fetch(
+          "https://hr-management-system-backend-9c9a.onrender.com/api-docs/"
+        );
+        if (response.ok) {
+          toast.success('Server is reachable!');
+        } else {
+          toast.error('Failed to reach the server');
+        }
+      } catch (error) {
+        toast.error('Error connecting to the server');
+      }
+    };
 
-  //   testLiveURL();
-  // }, []);
+    testLiveURL();
+  }, []);
 
   const handleLogout = () => {
     try {
